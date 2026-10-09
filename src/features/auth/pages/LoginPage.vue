@@ -60,7 +60,7 @@ const onSubmit = async (): Promise<void> => {
       id="login-submit-button"
       type="submit"
       :disabled="authStore.isLoading"
-      class="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-200 transition hover:bg-teal-700 disabled:opacity-60"
+      class="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-700 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-200 transition hover:bg-teal-800 disabled:opacity-60"
     >
       <LogIn class="h-4 w-4" />
       {{ authStore.isLoading ? "Memproses..." : "Masuk Sekarang" }}

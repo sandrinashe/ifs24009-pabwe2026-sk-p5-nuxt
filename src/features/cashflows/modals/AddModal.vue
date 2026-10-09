@@ -84,7 +84,7 @@ const fieldClass =
       <button
         type="submit"
         :disabled="cashFlowsStore.isCashFlowAdd"
-        class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-600 py-2.5 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-60"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-teal-700 py-2.5 text-sm font-semibold text-white hover:bg-teal-800 disabled:opacity-60"
       >
         <Plus class="h-4 w-4" /> Simpan Transaksi
       </button>

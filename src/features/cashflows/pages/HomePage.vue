@@ -67,9 +67,9 @@ watch(filters, load);
 const metrics = computed(() => {
   const balances = cashFlowsStore.balances;
   return [
-    { key: "cashflow", label: "Total Saldo Kas Bersih", value: balances.cashflow, icon: Scale, tone: "bg-teal-600 text-white" },
-    { key: "inflow", label: "Total Pemasukan", value: balances.inflow, icon: TrendingUp, tone: "bg-white text-emerald-600" },
-    { key: "outflow", label: "Total Pengeluaran", value: balances.outflow, icon: TrendingDown, tone: "bg-white text-rose-600" },
+    { key: "cashflow", label: "Total Saldo Kas Bersih", value: balances.cashflow, icon: Scale, tone: "bg-teal-700 text-white" },
+    { key: "inflow", label: "Total Pemasukan", value: balances.inflow, icon: TrendingUp, tone: "bg-white text-emerald-700" },
+    { key: "outflow", label: "Total Pengeluaran", value: balances.outflow, icon: TrendingDown, tone: "bg-white text-rose-700" },
     { key: "cash", label: "Saldo Kas Tunai", value: balances.cash, icon: Banknote, tone: "bg-white text-slate-700" },
     { key: "savings", label: "Saldo Rekening Tabungan", value: balances.savings, icon: PiggyBank, tone: "bg-white text-slate-700" },
     { key: "loans", label: "Saldo Pinjaman", value: balances.loans, icon: HandCoins, tone: "bg-white text-slate-700" },
@@ -122,13 +122,13 @@ const fieldClass =
     <header class="flex flex-wrap items-center justify-between gap-3">
       <div>
         <h1 class="text-2xl font-bold">Ringkasan Arus Kas</h1>
-        <p class="text-sm text-slate-500">Pantau pemasukan, pengeluaran, dan saldo setiap sumber dana.</p>
+        <p class="text-sm text-slate-600">Pantau pemasukan, pengeluaran, dan saldo setiap sumber dana.</p>
       </div>
       <div class="flex gap-2">
         <button
           type="button"
           data-testid="delete-all"
-          class="inline-flex items-center gap-2 rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-600 hover:bg-rose-50"
+          class="inline-flex items-center gap-2 rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-700 hover:bg-rose-50"
           @click="onDeleteAll"
         >
           <Trash2 class="h-4 w-4" /> Reset Transaksi
@@ -136,7 +136,7 @@ const fieldClass =
         <button
           type="button"
           data-testid="open-add"
-          class="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-700"
+          class="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-800"
           @click="showAdd = true"
         >
           <Plus class="h-4 w-4" /> Tambah Transaksi
@@ -151,7 +151,7 @@ const fieldClass =
         :data-testid="`metric-${metric.key}`"
         :class="['rounded-2xl p-5 shadow-sm ring-1 ring-slate-100', metric.tone]"
       >
-        <div class="flex items-center gap-2 text-sm font-medium opacity-90">
+        <div class="flex items-center gap-2 text-sm font-medium">
           <component :is="metric.icon" class="h-4 w-4" /> {{ metric.label }}
         </div>
         <p class="mt-2 text-2xl font-extrabold">{{ formatRupiah(metric.value) }}</p>
@@ -183,12 +183,12 @@ const fieldClass =
       </button>
     </div>
 
-    <p v-if="cashFlowsStore.isCashFlow" class="text-slate-500">Memuat transaksi...</p>
-    <p v-else-if="cashFlowsStore.cashFlows.length === 0" class="rounded-2xl bg-white p-8 text-center text-slate-500">
+    <p v-if="cashFlowsStore.isCashFlow" class="text-slate-600">Memuat transaksi...</p>
+    <p v-else-if="cashFlowsStore.cashFlows.length === 0" class="rounded-2xl bg-white p-8 text-center text-slate-600">
       Belum ada transaksi arus kas.
     </p>
     <div v-else class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100">
-      <div class="hidden grid-cols-[1.2fr_1fr_1fr_1fr_auto] gap-4 border-b border-slate-100 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 md:grid">
+      <div class="hidden grid-cols-[1.2fr_1fr_1fr_1fr_auto] gap-4 border-b border-slate-100 bg-slate-50 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid">
         <span>Label</span><span>Jenis</span><span>Sumber</span><span>Nominal</span><span>Aksi</span>
       </div>
       <ul class="divide-y divide-slate-100">
@@ -200,7 +200,7 @@ const fieldClass =
         >
           <div class="min-w-0">
             <p class="truncate font-semibold">{{ item.label }}</p>
-            <p class="truncate text-xs text-slate-500">{{ formatDate(item.created_at) }}</p>
+            <p class="truncate text-xs text-slate-600">{{ formatDate(item.created_at) }}</p>
           </div>
           <span
             data-testid="type-badge"
@@ -214,13 +214,13 @@ const fieldClass =
           <span class="text-sm text-slate-600">{{ sourceLabel(item.source) }}</span>
           <span class="font-semibold">{{ formatRupiah(item.nominal) }}</span>
           <div class="flex gap-1">
-            <RouterLink :to="`/cash-flows/${item.id}`" aria-label="Lihat detail" class="rounded-lg p-2 text-slate-500 hover:bg-slate-100">
+            <RouterLink :to="`/cash-flows/${item.id}`" aria-label="Lihat detail" class="rounded-lg p-2 text-slate-600 hover:bg-slate-100">
               <Eye class="h-4 w-4" />
             </RouterLink>
-            <button type="button" aria-label="Ubah" class="rounded-lg p-2 text-teal-600 hover:bg-teal-50" @click="editing = item">
+            <button type="button" aria-label="Ubah" class="rounded-lg p-2 text-teal-700 hover:bg-teal-50" @click="editing = item">
               <Pencil class="h-4 w-4" />
             </button>
-            <button type="button" aria-label="Hapus" class="rounded-lg p-2 text-rose-600 hover:bg-rose-50" @click="onDelete(item)">
+            <button type="button" aria-label="Hapus" class="rounded-lg p-2 text-rose-700 hover:bg-rose-50" @click="onDelete(item)">
               <Trash2 class="h-4 w-4" />
             </button>
           </div>

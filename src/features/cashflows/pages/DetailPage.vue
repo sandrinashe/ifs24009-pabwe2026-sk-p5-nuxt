@@ -51,8 +51,8 @@ const onDelete = async () => {
       <ArrowLeft class="h-4 w-4" /> Kembali ke ringkasan
     </RouterLink>
 
-    <p v-if="cashFlowsStore.isCashFlow" class="text-slate-500">Memuat detail transaksi...</p>
-    <p v-else-if="!cashFlowsStore.cashFlow" class="rounded-2xl bg-white p-8 text-center text-slate-500">
+    <p v-if="cashFlowsStore.isCashFlow" class="text-slate-600">Memuat detail transaksi...</p>
+    <p v-else-if="!cashFlowsStore.cashFlow" class="rounded-2xl bg-white p-8 text-center text-slate-600">
       Transaksi tidak ditemukan.
     </p>
     <article v-else class="space-y-6 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
@@ -74,23 +74,23 @@ const onDelete = async () => {
 
       <dl class="grid gap-4 text-sm sm:grid-cols-2">
         <div>
-          <dt class="text-slate-500">Sumber Dana</dt>
+          <dt class="text-slate-600">Sumber Dana</dt>
           <dd data-testid="source" class="font-medium">{{ sourceLabel }}</dd>
         </div>
         <div>
-          <dt class="text-slate-500">Label Kategori</dt>
+          <dt class="text-slate-600">Label Kategori</dt>
           <dd class="font-medium">{{ cashFlowsStore.cashFlow.label }}</dd>
         </div>
         <div>
-          <dt class="text-slate-500">Dibuat</dt>
+          <dt class="text-slate-600">Dibuat</dt>
           <dd class="font-medium">{{ formatDate(cashFlowsStore.cashFlow.created_at) }}</dd>
         </div>
         <div>
-          <dt class="text-slate-500">Diperbarui</dt>
+          <dt class="text-slate-600">Diperbarui</dt>
           <dd class="font-medium">{{ formatDate(cashFlowsStore.cashFlow.updated_at) }}</dd>
         </div>
         <div class="sm:col-span-2">
-          <dt class="text-slate-500">Keterangan</dt>
+          <dt class="text-slate-600">Keterangan</dt>
           <dd data-testid="description" class="font-medium">{{ cashFlowsStore.cashFlow.description || "-" }}</dd>
         </div>
       </dl>
@@ -99,7 +99,7 @@ const onDelete = async () => {
         <button
           type="button"
           data-testid="open-change"
-          class="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-700"
+          class="inline-flex items-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-800"
           @click="showChange = true"
         >
           <Pencil class="h-4 w-4" /> Ubah
@@ -107,7 +107,7 @@ const onDelete = async () => {
         <button
           type="button"
           data-testid="delete"
-          class="inline-flex items-center gap-2 rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-600 hover:bg-rose-50"
+          class="inline-flex items-center gap-2 rounded-xl border border-rose-200 px-4 py-2.5 text-sm font-semibold text-rose-700 hover:bg-rose-50"
           @click="onDelete"
         >
           <Trash2 class="h-4 w-4" /> Hapus

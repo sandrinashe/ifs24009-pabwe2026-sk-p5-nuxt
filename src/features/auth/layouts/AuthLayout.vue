@@ -8,7 +8,7 @@ const isRegister = computed(() => route.path === "/auth/register");
 
 const tabClass = (active: boolean) =>
   `flex-1 rounded-xl px-4 py-2.5 text-center text-sm font-semibold transition ${
-    active ? "bg-white text-teal-700 shadow-sm" : "text-slate-500 hover:text-slate-700"
+    active ? "bg-white text-teal-700 shadow-sm" : "text-slate-600 hover:text-slate-700"
   }`;
 </script>
 
@@ -16,7 +16,7 @@ const tabClass = (active: boolean) =>
   <main class="min-h-screen lg:grid lg:grid-cols-2">
     <aside
       data-testid="auth-banner"
-      class="hidden flex-col justify-between bg-gradient-to-br from-teal-600 via-teal-700 to-emerald-800 p-12 text-white lg:flex"
+      class="hidden flex-col justify-between bg-gradient-to-br from-teal-700 via-teal-700 to-emerald-800 p-12 text-white lg:flex"
     >
       <div class="flex items-center gap-3 text-lg font-bold">
         <Wallet class="h-6 w-6" /> Delcom Cash Flow
@@ -34,12 +34,12 @@ const tabClass = (active: boolean) =>
       <div class="w-full max-w-md">
         <div class="mb-8 text-center">
           <div
-            class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white shadow-lg"
+            class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-700 text-white shadow-lg"
           >
             <Wallet class="h-7 w-7" />
           </div>
           <h1 class="text-3xl font-extrabold text-slate-900">Delcom Cash Flow</h1>
-          <p class="mt-1 text-sm text-slate-500">Aplikasi Pencatat Arus Kas yang Modern</p>
+          <p class="mt-1 text-sm text-slate-600">Aplikasi Pencatat Arus Kas yang Modern</p>
         </div>
 
         <div class="rounded-3xl bg-white p-6 shadow-xl shadow-slate-200/70">

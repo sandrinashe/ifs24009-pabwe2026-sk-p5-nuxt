@@ -54,14 +54,14 @@ const onSubmitPassword = async () => {
 const inputClass =
   "w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200";
 const buttonClass =
-  "inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-60";
+  "inline-flex items-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-800 disabled:opacity-60";
 </script>
 
 <template>
   <section class="space-y-6">
     <header>
       <h1 class="text-2xl font-bold">Profil Saya</h1>
-      <p class="text-sm text-slate-500">Kelola data akun, foto, dan kata sandi kamu.</p>
+      <p class="text-sm text-slate-600">Kelola data akun, foto, dan kata sandi kamu.</p>
     </header>
 
     <div v-if="usersStore.profile" class="grid gap-6 lg:grid-cols-2">
@@ -98,7 +98,7 @@ const buttonClass =
       <div class="space-y-6">
         <form class="space-y-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100" @submit.prevent="onSubmitPhoto">
           <h2 class="text-lg font-semibold">Foto Profil</h2>
-          <input id="photo" type="file" accept="image/*" :class="inputClass" @change="onPhotoChange" />
+          <input id="photo" type="file" aria-label="Pilih foto profil" accept="image/*" :class="inputClass" @change="onPhotoChange" />
           <button type="submit" :disabled="!photoFile || usersStore.isProfileChange" :class="buttonClass">
             <Camera class="h-4 w-4" /> Unggah Foto
           </button>
@@ -109,15 +109,15 @@ const buttonClass =
           @submit.prevent="onSubmitPassword"
         >
           <h2 class="text-lg font-semibold">Ubah Kata Sandi</h2>
-          <input id="password" type="password" required placeholder="Kata sandi saat ini" :value="password" :class="inputClass" @input="onPasswordChange" />
-          <input id="new-password" type="password" required placeholder="Kata sandi baru" :value="newPassword" :class="inputClass" @input="onNewPasswordChange" />
-          <input id="confirmation" type="password" required placeholder="Konfirmasi kata sandi baru" :value="confirmation" :class="inputClass" @input="onConfirmationChange" />
+          <input id="password" aria-label="Kata sandi saat ini" type="password" required placeholder="Kata sandi saat ini" :value="password" :class="inputClass" @input="onPasswordChange" />
+          <input id="new-password" aria-label="Kata sandi baru" type="password" required placeholder="Kata sandi baru" :value="newPassword" :class="inputClass" @input="onNewPasswordChange" />
+          <input id="confirmation" aria-label="Konfirmasi kata sandi baru" type="password" required placeholder="Konfirmasi kata sandi baru" :value="confirmation" :class="inputClass" @input="onConfirmationChange" />
           <button type="submit" :disabled="usersStore.isProfileChange" :class="buttonClass">
             <KeyRound class="h-4 w-4" /> Ubah Kata Sandi
           </button>
         </form>
       </div>
     </div>
-    <p v-else class="text-slate-500">Memuat profil...</p>
+    <p v-else class="text-slate-600">Memuat profil...</p>
   </section>
 </template>
