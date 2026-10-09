@@ -1,0 +1,9 @@
+# Semua temuan berada di dependensi transitif tooling build/dev Nuxt (@nuxt/devtools,
+# @nuxt/cli, nitropack), bukan kode runtime aplikasi. simple-git v4 (perbaikan) tidak
+# kompatibel dengan Nuxt DevTools; braces & node-forge belum punya rilis perbaikan.
+GHSA-v5rq-49vh-5v5c
+GHSA-x6jw-m9v5-85vh
+GHSA-g4wm-2vf7-vfgr
+GHSA-858h-whjf-mvg5
+GHSA-vfj7-8cjw-p6xm
+GHSA-86w9-cpqp-85rv
